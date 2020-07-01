@@ -8,7 +8,7 @@ menu: 关于
 permalink: /about/
 ---
 
-## 联系方式
+## [联系方式]
 
 <ul>
 {% for website in site.data.social %}
@@ -17,7 +17,7 @@ permalink: /about/
 </ul>
 
 
-## 会干些啥
+## [会干些啥]
 
 {% for skill in site.data.skills %}
 ### {{ skill.name }}
