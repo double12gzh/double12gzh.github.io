@@ -1,9 +1,9 @@
 ---
 layout: post
 title: template page
-categories: [test, git]
+categories: [test, git, k8s]
 description: some word here
-keywords: keyword1, keyword2
+keywords: minikube, k8s, git, test
 ---
 
 Content here
