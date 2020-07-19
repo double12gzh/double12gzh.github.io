@@ -60,9 +60,9 @@ navs:
     href: /categories/
     label: Categories
 
-   -
-     href: /archives/
-     label: Archives
+  -
+    href: /archives/
+    label: Archives
 
 #   -
 #     href: /open-source/
