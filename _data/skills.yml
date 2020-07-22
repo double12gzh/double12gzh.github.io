@@ -1,0 +1,11 @@
+- name: 个人经验
+  keywords:
+      - C/C++
+      - GoLang
+      - Python
+      - 云原生
+      - 云计算
+
+- name: 个人书籍
+  keywords:
+      - 《OpenStack架构与实践》

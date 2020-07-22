@@ -1,0 +1,19 @@
+- name: Draveness大神
+  url: https://draveness.me/
+  src: www
+
+- name: 我的博客
+  url: https://www.cnblogs.com/double12gzh
+  src: life 
+
+- name: 我的博客
+  url: https://blog.csdn.net/gzhouc
+  src: life 
+
+- name: 我的WIKI(gitee)
+  url: https://double12gzh.gitee.io/wiki
+  src: life
+
+- name: 我的WIKI(github)
+  url: https://double12gzh.github.io/wiki
+  src: life
