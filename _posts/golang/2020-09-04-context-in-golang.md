@@ -12,7 +12,6 @@ keywords: golang,context
 * TOC
 {:toc}
 
-
 ## 1. 背景
 我们在开发Golang中的应用时，通常会使用Contexts来控制和管理所依赖的应用中非常重要的数据，例如并发编程中的`cancellation`和`data share`。
 
