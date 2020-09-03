@@ -1,3 +1,17 @@
+---
+layout: post 
+title: GoLang中的Context
+categories: [golang]
+description: golang，context
+keywords: golang, context
+---
+
+
+**目录**
+
+* TOC
+{:toc}
+
 
 ## 1. 背景
 我们在开发Golang中的应用时，通常会使用Contexts来控制和管理所依赖的应用中非常重要的数据，例如并发编程中的`cancellation`和`data share`。
@@ -55,6 +69,7 @@ func main() {
 使用这种技术，你可以将`context.Context`传递给其它的并发函数，只要你正确地管理所传递的上下文，这将是在这些并发函数之间共享作用域值的非常好的方法（这意味着每个上下文将在其作用域上保持自己的值）。这正是`net/http`包在处理HTTP请求时的做法。为了详细说明这一点，我们来看看下一个例子。
 
 **中间件**
+
 `request scoped data`的一个很好的例子是在Web请求处理程序中使用中间件。`http.Request`类型包含一个`context`，它可以在整个HTTP管道中携带`scoped data`。
 在HTTP管道中添加中间件，然后将中间件的结果添加到`http.Request`的`context`中，这是非常常见的代码。
 
