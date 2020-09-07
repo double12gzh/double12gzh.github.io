@@ -12,7 +12,7 @@ keywords: golang，逃逸分析
 * TOC
 {:toc}
 
-![](https://raw.githubusercontent.com/studygolang/gctt-images2/master/20200907-Go-Introduction-to-the-Escape-Analysis/图0.png)
+![](/images/blog/2020-09-07-Go-Introduction-to-the-Escape-Analysis-0.png)
 
 > 本篇文章基于GoLang 1.13.
 
@@ -60,13 +60,13 @@ F:\hello>go build -gcflags="-m" main.go
 
 下面是之前代码生成的`抽象语法树`的一个例子：
 
-![](https://raw.githubusercontent.com/studygolang/gctt-images2/master/20200907-Go-Introduction-to-the-Escape-Analysis/图1.png)
+![](/images/blog/2020-09-07-Go-Introduction-to-the-Escape-Analysis-1.png)
 
 > 关于抽象语法树请参考： [package ast](https://golang.org/pkg/go/ast/#example_Print), [ast example](https://golang.org/src/go/ast/example_test.go)
 
 为了简化分析， 下面我给出了一个简化版的`抽象语法树`的结果：
 
-![](https://raw.githubusercontent.com/studygolang/gctt-images2/master/20200907-Go-Introduction-to-the-Escape-Analysis/图2.png)
+![](/images/blog/2020-09-07-Go-Introduction-to-the-Escape-Analysis-2.png)
 
 由于该树暴露了定义的变量(用`NAME`表示)和对指针的操作(用`ADDR`或`DEREF`表示)，故它可以向GoLang提供进行`逃逸分析`所需要的所有信息。一旦建立了树，并解析了函数和参数，GoLang现在就可以应用`逃逸分析`逻辑来查看哪些应该是堆或栈分配的。
 
@@ -74,11 +74,11 @@ F:\hello>go build -gcflags="-m" main.go
 
 在运行`逃逸分析`并从AST图中遍历函数(即: 标记)的同时，Go会寻找那些超过当前栈框架并因此需要进行堆分配的变量。假设没有堆分配，在这个基础上，通过前面例子的栈框架来表示，我们先来定义一下`outlive`的含义。下面是调用这两个函数时，堆栈向下生长的情况。
 
-![](https://raw.githubusercontent.com/studygolang/gctt-images2/master/20200907-Go-Introduction-to-the-Escape-Analysis/图3.png)
+![](/images/blog/2020-09-07-Go-Introduction-to-the-Escape-Analysis-3.png)
 
 在这种情况下，变量`num`不能指向之前堆上分配的变量。在这种情况下，Go必须在`堆`上分配变量，确保它的生命周期超过堆栈框架的生命周期。
 
-![](https://raw.githubusercontent.com/studygolang/gctt-images2/master/20200907-Go-Introduction-to-the-Escape-Analysis/图4.png)
+![](/images/blog/2020-09-07-Go-Introduction-to-the-Escape-Analysis-4.png)
 
 变量`tmp`现在包含了分配给堆栈的内存地址，可以安全地从一个堆栈框架复制到另一个堆栈框架。然而，并不是只有返回的值才会失效。下面是规则:
 
@@ -153,7 +153,7 @@ func getAnyNumber() *int {
 
 下面是一个简化版的AST代码：
 
-![](https://raw.githubusercontent.com/studygolang/gctt-images2/master/20200907-Go-Introduction-to-the-Escape-Analysis/图5.png)
+![](/images/blog/2020-09-07-Go-Introduction-to-the-Escape-Analysis-5.png)
 
 Go通过建立加权图来定义分配。每一次解引用，在代码中用`*`表示，或者在节点中用`DEREF`表示，权重增加`1`；每一次寻址操作，在代码中用`&`表示，或者在节点中用`ADDR`表示，权重减少`1`。
 
