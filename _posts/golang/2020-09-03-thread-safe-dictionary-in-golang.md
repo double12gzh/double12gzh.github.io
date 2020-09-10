@@ -12,6 +12,9 @@ keywords: golang, map, thread-safe
 * TOC
 {:toc}
 
+
+![](https://gitee.com/double12gzh/wiki-pictures/raw/master/Go-How-to-Reduce-Lock-Contention-with-the-Atomic-Package/%E5%9B%BE0.png)
+
 ## 1. 背景
 本文主要解释如何通过RWMutex来实现一个基于内存的`字典`数据结构。
 

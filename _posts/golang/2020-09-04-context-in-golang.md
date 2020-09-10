@@ -12,6 +12,9 @@ keywords: golang,context
 * TOC
 {:toc}
 
+
+![](https://gitee.com/double12gzh/wiki-pictures/raw/master/Go-How-to-Reduce-Lock-Contention-with-the-Atomic-Package/%E5%9B%BE0.png)
+
 ## 1. 背景
 我们在开发Golang中的应用时，通常会使用Contexts来控制和管理所依赖的应用中非常重要的数据，例如并发编程中的`cancellation`和`data share`。
 

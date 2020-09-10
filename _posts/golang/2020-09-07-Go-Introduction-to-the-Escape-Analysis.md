@@ -12,7 +12,8 @@ keywords: golang，逃逸分析
 * TOC
 {:toc}
 
-![](/images/blog/2020-09-07-Go-Introduction-to-the-Escape-Analysis-0.png)
+
+![](https://gitee.com/double12gzh/wiki-pictures/raw/master/Go-How-to-Reduce-Lock-Contention-with-the-Atomic-Package/%E5%9B%BE0.png)
 
 > 本篇文章基于GoLang 1.13.
 
