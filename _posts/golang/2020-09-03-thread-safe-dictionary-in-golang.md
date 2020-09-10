@@ -2,8 +2,8 @@
 layout: post 
 title: 在GoLang中实现线程安全的字典
 categories: [golang]
-description: golang，map, thread-safe
-keywords: golang, map, thread-safe
+description: golang,map,thread-safe
+keywords: golang,map,thread-safe
 ---
 
 

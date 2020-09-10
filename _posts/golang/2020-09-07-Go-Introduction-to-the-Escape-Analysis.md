@@ -2,8 +2,8 @@
 layout: post 
 title: GoLang逃逸分析简介
 categories: [golang]
-description: golang，逃逸分析
-keywords: golang，逃逸分析
+description: golang,逃逸分析
+keywords: golang,逃逸分析
 ---
 
 
