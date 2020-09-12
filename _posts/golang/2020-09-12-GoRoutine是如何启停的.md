@@ -12,6 +12,8 @@ keywords: golang
 * TOC
 {:toc}
 
+![](https://gitee.com/double12gzh/wiki-pictures/raw/master/2020-09-12-GoRoutine%E6%98%AF%E5%A6%82%E4%BD%95%E5%90%AF%E5%81%9C%E7%9A%84/%E5%9B%BE0.png)
+
 ## 写在前面
 
 > 本文基于GoLang 1.14
