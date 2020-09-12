@@ -69,7 +69,7 @@ func main() {
 
 将这个列表保持在本地，每个`P`带来的好处是不需要使用任何锁来推送或获取一个空闲的goroutine。然后，当一个goroutine从当前工作中退出时，它将被推送到这个空闲列表中。
 
-![](https://gitee.com/double12gzh/wiki-pictures/blob/master/go%E6%98%AF%E5%A6%82%E4%BD%95%E5%9B%9E%E6%94%B6goroutine%E7%9A%84/pic-3.png)
+![](https://gitee.com/double12gzh/wiki-pictures/raw/master/go%E6%98%AF%E5%A6%82%E4%BD%95%E5%9B%9E%E6%94%B6goroutine%E7%9A%84/pic-3.png)
 
 然而，为了更好地分配释放的goroutine，调度器也有自己的列表。实际上，它有两个列表：一个是包含有分配栈的goroutine，另一个是保持释放栈的goroutine--这个细节将在下一节解释。如下图：
 
