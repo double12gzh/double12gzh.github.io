@@ -12,9 +12,13 @@ keywords: golang,goroutine
 * TOC
 {:toc}
 
-![](pic-0)
+![](https://gitee.com/double12gzh/wiki-pictures/raw/master/go%E6%98%AF%E5%A6%82%E4%BD%95%E5%9B%9E%E6%94%B6goroutine%E7%9A%84/pic-0.png)
 
 ## 1. 写在前面
+
+> 微信公众号：**[double12gzh]**
+> 
+> 关注容器技术、关注`Kubernetes`。问题或建议，请公众号留言。
 
 > 本文是基于golang 1.13
 
@@ -61,23 +65,21 @@ func main() {
 
 数百个goroutine将被用来过滤数字，同时，Go负责管理这些goroutine的创建和销毁。实际上，Go为每个`p`维护着一个空闲的goroutine列表，如下图
 
-[[图1]]
+![](https://gitee.com/double12gzh/wiki-pictures/raw/master/go%E6%98%AF%E5%A6%82%E4%BD%95%E5%9B%9E%E6%94%B6goroutine%E7%9A%84/pic-1.png)
 
-[[图2]]
+![](https://gitee.com/double12gzh/wiki-pictures/raw/master/go%E6%98%AF%E5%A6%82%E4%BD%95%E5%9B%9E%E6%94%B6goroutine%E7%9A%84/pic-2.png)
 
 将这个列表保持在本地，每个`P`带来的好处是不需要使用任何锁来推送或获取一个空闲的goroutine。然后，当一个goroutine从当前工作中退出时，它将被推送到这个空闲列表中。
 
-[[图3]]
-
-[[图4]]
+![](https://gitee.com/double12gzh/wiki-pictures/blob/master/go%E6%98%AF%E5%A6%82%E4%BD%95%E5%9B%9E%E6%94%B6goroutine%E7%9A%84/pic-3.png)
 
 然而，为了更好地分配释放的goroutine，调度器也有自己的列表。实际上，它有两个列表：一个是包含有分配栈的goroutine，另一个是保持释放栈的goroutine--这个细节将在下一节解释。如下图：
 
-[[图5]]
+![](https://gitee.com/double12gzh/wiki-pictures/raw/master/go%E6%98%AF%E5%A6%82%E4%BD%95%E5%9B%9E%E6%94%B6goroutine%E7%9A%84/pic-5.png)
 
 由于任何线程都可以访问中心列表，因此有一个锁保护中心列表。当本地列表长度超过64时，由调度器持有的列表会从`P`获取goroutine。然后，一半的goroutine会被转移到中心列表中。
 
-[[图6]]
+![](https://gitee.com/double12gzh/wiki-pictures/raw/master/go%E6%98%AF%E5%A6%82%E4%BD%95%E5%9B%9E%E6%94%B6goroutine%E7%9A%84/pic-6.png)
 
 不过，虽然看起来很直接，但这个工作流程对goroutine的内存分配有一些规定。
 
