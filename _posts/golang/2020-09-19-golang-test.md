@@ -1,20 +1,22 @@
 ---
 layout: post 
-title: 测试一下
-categories: [test]
+title: golang-test
+categories: [golang]
 description: some word here
-keywords: test
+keywords: golang
 ---
 
 
-再加两个回车试一下。这是一个前言部分，写在这里主要是想测试一下为什么我 其它的文章都显示不对呢。
+**目录**
 
+* TOC
+{:toc}
 
 ## 二级标题1
 
 - 如何添加代码
 
-```golang
+```go
 package main
 
 import fmt
@@ -24,6 +26,7 @@ import fmt
 func main() {
     fmt.Println("Hello World!")
 }
+
 ```
 
 ```python
@@ -35,7 +38,8 @@ if __name__ == "__main__":
 
 - 如何使用图片
 
-![pic](/images/blog/test_pic.jpg)
+![](/images/blog/test_pic.jpg)
+
 
 ### 三级标题
 
