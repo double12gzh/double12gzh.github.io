@@ -4,6 +4,7 @@ title: GoLang逃逸分析简介
 categories: [golang]
 description: golang,逃逸分析
 keywords: golang,逃逸分析
+excerpt: 摘要：`逃逸分析`是GoLang编译器中的一个阶段，它通过分析用户源码，决定哪些变量应该在堆栈上分配，哪些变量应该逃逸到堆中。
 ---
 
 

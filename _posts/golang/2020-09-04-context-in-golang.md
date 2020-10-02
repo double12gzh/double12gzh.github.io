@@ -4,6 +4,7 @@ title: GoLang中的Context
 categories: [golang]
 description: golang,context
 keywords: golang,context
+excerpt: 摘要：介绍如何使用GoLang中的Context。
 ---
 
 

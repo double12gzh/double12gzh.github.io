@@ -4,9 +4,8 @@ title: 在windows上通过wsl来部署k8s
 categories: k8s
 description: some word here
 keywords: k8s, controller, client-go, crd, kind, minikube
+excerpt: 摘要：针对Windows 10和WSL2，将在Docker KinD和Minikube中从头开始安装Kubernetes。
 ---
-
-摘要：是Windows 10和WSL2的新手，还是Docker和Kubernetes的新手？欢迎来到这篇博文，我们将在Docker KinD和Minikube中从头开始安装Kubernetes。
 
 ## 1. 写在前面
 

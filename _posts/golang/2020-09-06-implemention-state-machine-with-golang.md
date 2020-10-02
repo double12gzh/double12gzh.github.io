@@ -4,6 +4,7 @@ title: 使用GoLang实现状态机
 categories: [golang]
 description: golang,state-machine
 keywords: golang,state-machine
+excerpt: 摘要：介绍如何实现golang状态机。
 ---
 
 

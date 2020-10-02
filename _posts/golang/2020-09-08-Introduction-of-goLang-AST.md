@@ -4,6 +4,7 @@ title: GoLang AST简介
 categories: [golang]
 description: golang,AST
 keywords: golang,AST
+excerpt: 摘要：介绍GoLang AST。
 ---
 
 

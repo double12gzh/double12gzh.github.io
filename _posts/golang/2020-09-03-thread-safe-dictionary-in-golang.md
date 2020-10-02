@@ -4,6 +4,7 @@ title: 在GoLang中实现线程安全的字典
 categories: [golang]
 description: golang,map,thread-safe
 keywords: golang,map,thread-safe
+excerpt: 摘要：本文主要解释如何通过RWMutex来实现一个基于内存的`字典`数据结构。
 ---
 
 

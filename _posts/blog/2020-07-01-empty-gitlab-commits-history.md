@@ -4,6 +4,7 @@ title: 如何删除gitlab中的commit历史记录
 categories: [git]
 description: git操作，清空commit历史
 keywords: git 
+excerpt: 摘要：介绍使用git命令删除commit历史。
 ---
 
 

@@ -4,6 +4,7 @@ title: 使用client-go访问k8s中的CRD
 categories: k8s
 description: some word here
 keywords: k8s, controller, client-go, crd
+excerpt: 摘要：介绍如何使用client-go中的工具访问CRD。
 ---
 
 

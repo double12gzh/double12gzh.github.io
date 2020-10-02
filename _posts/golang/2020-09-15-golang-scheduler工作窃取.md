@@ -4,6 +4,7 @@ title: 调度器工作窃取
 categories: [golang]
 description: scheduler
 keywords: golang,scheduler
+excerpt: 摘要：如题。
 ---
 
 

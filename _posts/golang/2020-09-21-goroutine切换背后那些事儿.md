@@ -4,6 +4,7 @@ title: goroutine切换背后那些事儿
 categories: golang
 description: some word here
 keywords: golang, goroutine
+excerpt: 摘要：如题。
 ---
 
 ![](https://gitee.com/double12gzh/wiki-pictures/raw/master/2020-09-21-go-switch/0.png)

@@ -4,6 +4,7 @@ title: 巧妙使用WaitGroup处理错误
 categories: golang
 description: some word here
 keywords: golang, waitgroup, error
+excerpt: 摘要：如题。
 ---
 
 ![](https://gitee.com/double12gzh/wiki-pictures/raw/master/2020-09-20-handle-errors-with-waitgroup.png)

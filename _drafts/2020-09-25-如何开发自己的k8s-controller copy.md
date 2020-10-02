@@ -4,6 +4,7 @@ title: 如何开发k8s controller
 categories: k8s
 description: some word here
 keywords: k8s, controller, client-go
+excerpt: 摘要：介绍如何开发自己的k8s controller。
 ---
 
 

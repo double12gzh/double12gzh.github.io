@@ -4,6 +4,7 @@ title: Go是如何回收goroutine的
 categories: [golang]
 description: golang goroutine
 keywords: golang,goroutine
+excerpt: 摘要：如题。
 ---
 
 

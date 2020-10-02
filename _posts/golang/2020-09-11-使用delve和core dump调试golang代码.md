@@ -4,6 +4,7 @@ title: 使用delve和coredump调试golang代码
 categories: [golang]
 description: golang,state-machine
 keywords: golang
+excerpt: 摘要：如题。
 ---
 
 

@@ -4,6 +4,7 @@ title: goroutine是如何启停的
 categories: [golang]
 description: golang
 keywords: golang
+excerpt: 摘要：如题。
 ---
 
 
