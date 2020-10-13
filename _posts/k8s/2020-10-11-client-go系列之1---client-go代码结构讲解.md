@@ -10,6 +10,10 @@ excerpt: 摘要：分析client-go的代码结构。
 
 ## 1. 写在前面
 
+> 个人主页: https://gzh.readthedocs.io
+> 
+> 关注容器技术、关注`Kubernetes`。问题或建议，请公众号留言。
+
 本系列内容都是基于这个版本的[client-go](https://github.com/kubernetes/client-go/tree/becbabb360023e1825a48b4db85f454e452ae249)进行讲解，不同版本的略有差异。
 
 ```bash
@@ -19,13 +23,7 @@ becbabb360023e1825a48b4db85f454e452ae249
 
 下面简单罗列一下本文中可能会用提到的一些常用缩写，详细的介绍请参考后面的文章(TODO)[谈起k8s中的GVR我们实际在讲什么](https://double12gzh.github.io/2020/10/11/client-go%E7%B3%BB%E5%88%97%E4%B9%8B1-client-go%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84%E8%AE%B2%E8%A7%A3-copy/)。
 
-|缩写|解释|备注|
-|-|-|-|
-|GVR| Group, Version, Resource||
-|Group|CoreV1, apps, admissionregistration.k8s.io, ...||
-|Version|v1, alpha1, ...||
-|Resource|jobs, deployments, pods, ...||
-|Kind|Job, CronJob, Deployment, Pod, StatefulSet, ...||
+![](https://gitee.com/double12gzh/wiki-pictures/raw/master/2020-10-11-client-go/3-abbr.png)
 
 > 说明
 >
@@ -202,3 +200,9 @@ refelector是定义在包缓存里面的[Reflector](https://github.com/kubernete
 ### 5.4 WorkQueue
 
 这是在控制器代码中创建的队列，用于将对象的分发与处理解耦。编写 `Resource Event Handler` 函数来提取所分发对象的键值并将其添加到工作队列中。
+
+
+---
+欢迎关注我的微信公众号：
+
+![](https://gitee.com/double12gzh/wiki-pictures/raw/master/wechat_public.jpg)
