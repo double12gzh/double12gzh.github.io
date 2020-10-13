@@ -3,7 +3,7 @@ layout: post
 title: client-go系列之2---管理kubeconfig
 categories: k8s
 description: some word here
-keywords: k8s, client-go, restclient, clientset, dynamicclient, discoveryclient, k8s源码分析
+keywords: k8s, client-go, kubeconfig, k8s源码分析
 excerpt: 摘要：分析client-go如何管理kubeconfig。
 ---
 
