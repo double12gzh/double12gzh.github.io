@@ -165,6 +165,63 @@ ClientSets使用`预生成的API对象`, 这样的好处是当本地的API对象
 
 DynamicClient则使用`unstructured.Unstructured`表示来自API Server的所有对象值。`Unstructured`类型是一个嵌套的`map[string]inferface{}`值的集合来创建一个内部结构，这一点类似于RESTful API中的Json数据，这样可以解决ClientSet中出现的强耦合的问题，换句话说，当客户端的API发生变化时，DynamicClient无需重新编译。DynamicClient使所有数据实现延时绑定，即只有到运行时才会实现绑定，这意味着程序运行之前，使用`DynamicClient`的程序将不会对对象进行Validation，这也是本client的一个缺点。
 
+DiscoveryClient的主要作用是用于自动发现当前k8s-api-server所支持的所有的GVR(Group, Version, Resources)。当我们执行`kubectl api-resources`或`kuectl api-versions`时，其后端就是通过DiscoveryClient实现的。
+
+DiscoveryClient除了有上面的提供到功能外，与其它Client不同之处是，它还有`缓存`的能力，即：它会把GVR信息缓存到本地的`~/.kube/cache`和`~/.kube/http-cache`中。这样做最大的好处是可以减小api server的压力，只有从缓存中无法获取时，才会去api-server获取。
+
+```bash
+[root@xxxx ~/hello] tree -d  /root/.kube/cache -L 3
+/root/.kube/cache
+├── discovery
+│   ├── 127.0.0.1_33629
+│   │   ├── admissionregistration.k8s.io
+│   │   ├── apiextensions.k8s.io
+│   │   ├── apiregistration.k8s.io
+│   │   ├── apps
+│   │   ├── authentication.k8s.io
+│   │   ├── authorization.k8s.io
+│   │   ├── autoscaling
+│   │   ├── batch
+│   │   ├── certificates.k8s.io
+│   │   ├── coordination.k8s.io
+│   │   ├── discovery.k8s.io
+│   │   ├── events.k8s.io
+│   │   ├── extensions
+│   │   ├── networking.k8s.io
+│   │   ├── node.k8s.io
+│   │   ├── policy
+│   │   ├── rbac.authorization.k8s.io
+│   │   ├── scheduling.k8s.io
+│   │   ├── storage.k8s.io
+│   │   └── v1
+│   └── 127.0.0.1_51107
+│       ├── admissionregistration.k8s.io
+│       ├── apiextensions.k8s.io
+│       ├── apiregistration.k8s.io
+│       ├── apps
+│       ├── authentication.k8s.io
+│       ├── authorization.k8s.io
+│       ├── autoscaling
+│       ├── batch
+│       ├── certificates.k8s.io
+│       ├── coordination.k8s.io
+│       ├── discovery.k8s.io
+│       ├── events.k8s.io
+│       ├── extensions
+│       ├── networking.k8s.io
+│       ├── node.k8s.io
+│       ├── policy
+│       ├── rbac.authorization.k8s.io
+│       ├── scheduling.k8s.io
+│       ├── storage.k8s.io
+│       └── v1
+└── http
+
+65 directories
+```
+
+> 上面不同端口分别对应不同的集群。
+
 ## 5. 其它组件
 
 client-go中除了上面提到比较重要的客户端外, 本库还包含了各种机制(`tools/cache`)。

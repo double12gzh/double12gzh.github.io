@@ -197,3 +197,13 @@ NAMESPACE: kube-system NAME: kube-scheduler-kind-control-plane   STATUS: Running
 NAMESPACE: kube-system NAME: kube-scheduler-kind-control-plane2          STATUS: Running
 NAMESPACE: kube-system NAME: kube-scheduler-kind-control-plane3          STATUS: Running
 ```
+
+## 4. 调用分析
+
+简略调用图
+
+![](https://gitee.com/double12gzh/wiki-pictures/raw/master/2020-10-13-client-go-kubeconfig/main.png)
+
+详细调用图(图片较大，请耐心等待加载，或者从[这里](https://gitee.com/double12gzh/wiki-pictures/raw/master/2020-10-13-client-go-kubeconfig/detailed-cal.png)下载到本地)
+
+![](https://gitee.com/double12gzh/wiki-pictures/raw/master/2020-10-13-client-go-kubeconfig/detailed-cal.png)
