@@ -1,9 +1,46 @@
 ---
 layout: post
 title: template page
-categories: [test, git, k8s, golang, tools,树莓派,linux]
+categories: [git, k8s, golang, linux, test, tools, 树莓派]
 description: some word here
-keywords: minikube,k8s, git, test, golang, map, thread-safe,context,state-machine,逃逸分析,AST,goroutine,g0,scheduler,string,sphinx,pandoc,readthedocs,树莓派,私有云,owncloud, kind, minikube, makefile, linux, tool,git ops, restclient, client-go, clientset, dynamicclient, discoveryclient, k8s源码分析, GVR, resource, group, version
+keywords: [
+    AST,
+    client-go, 
+    clientset,
+    context, 
+    discoveryclient,
+    dynamicclient,
+    informer,
+    kind,  
+    k8s, 
+    k8s源码分析, 
+    linux, 
+    git, 
+    golang,
+    git ops, 
+    goroutine,
+    g0,
+    group,
+    GVR,  
+    map, 
+    makefile, 
+    minikube,
+    owncloud, 
+    pandoc,
+    readthedocs,
+    resource, 
+    restclient, 
+    scheduler,
+    string,
+    sphinx,
+    state-machine,
+    test,
+    thread-safe,
+    tool,
+    version, 
+    树莓派,
+    私有云,
+    逃逸分析]
 excerpt: 摘要：
 ---
 

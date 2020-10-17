@@ -226,7 +226,7 @@ DiscoveryClient除了有上面的提供到功能外，与其它Client不同之�
 
 client-go中除了上面提到比较重要的客户端外, 本库还包含了各种机制(`tools/cache`)。
 
-下图比较直观的展示了client-go与customer controller及client-go各组件之间的交互关系，是我们在开发自定义控制器时经常需要使用的机制，了解这个图有助于我们更好的理解client-go及controller背后的实现逻辑。
+下图比较直观的展示了client-go与customer controller及client-go各组件之间的交互关系，是我们在开发自定义控制器时经常需要使用的机制，了解这个图有助于我们更好的理解client-go及controller背后的实现逻辑([出处](https://github.com/kubernetes/sample-controller/blob/master/docs/controller-client-go.md))。
 
 ![](https://raw.githubusercontent.com/kubernetes/sample-controller/master/docs/images/client-go-controller-interaction.jpeg)
 
