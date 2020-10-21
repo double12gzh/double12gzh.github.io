@@ -207,3 +207,9 @@ NAMESPACE: kube-system NAME: kube-scheduler-kind-control-plane3          STATUS:
 详细调用图(图片较大，请耐心等待加载，或者从[这里](https://gitee.com/double12gzh/wiki-pictures/raw/master/2020-10-13-client-go-kubeconfig/detailed-cal.png)下载到本地)
 
 ![](https://gitee.com/double12gzh/wiki-pictures/raw/master/2020-10-13-client-go-kubeconfig/detailed-cal.png)
+
+---------------
+
+欢迎关注我的微信公众号：
+
+![](https://gitee.com/double12gzh/wiki-pictures/raw/master/wechat_public.jpg)

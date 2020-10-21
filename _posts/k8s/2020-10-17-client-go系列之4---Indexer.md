@@ -232,7 +232,13 @@ Indices: {
 
     另外，从图中我们也可以看出，`Indexer`实际上是对`threadSafeMap`的封装，它继承了后者的所有方法，同时也实现了`IndexFunc`。
 
+> Item的内容如下：
 
+![](https://gitee.com/double12gzh/wiki-pictures/raw/master/2020-10-16-custom-controller/20201021-items.png)
+
+> queue中的内容如下：
+
+![](https://gitee.com/double12gzh/wiki-pictures/raw/master/2020-10-16-custom-controller/20201021-queue.png)
 
 ### 2.2 Indexer索引器实现
 
@@ -274,3 +280,9 @@ Indices: {
 * 根据索引器名字查找指定的索引器函数(`c.indexers[indexName]`)
 * 根据索引器名字查找相应的缓存器函数(`c.indices[indexName]`)
 * 根据索引key(即：`indexedValue`)从缓存中进行数据查询，并返回查询结果
+
+---------------
+
+欢迎关注我的微信公众号：
+
+![](https://gitee.com/double12gzh/wiki-pictures/raw/master/wechat_public.jpg)

@@ -254,11 +254,6 @@ refelector是定义在包缓存里面的[Reflector](https://github.com/kubernete
 
 在`tools/cache`内的`Store`类型中定义了一个名为`MetaNamespaceKeyFunc`的默认函数，该函数为该对象生成一个对象的键，作为`<namespace>/<name>`组合。
 
-### 5.4 WorkQueue
-
-这是在控制器代码中创建的队列，用于将对象的分发与处理解耦。编写 `Resource Event Handler` 函数来提取所分发对象的键值并将其添加到工作队列中。
-
-
 ---
 欢迎关注我的微信公众号：
 
