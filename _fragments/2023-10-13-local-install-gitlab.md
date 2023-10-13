@@ -123,6 +123,7 @@ docker exec -it gitlab-runner gitlab-runner start
 ```
 
 # 2. 访问
+- 用户名和密码
 
 | key      | value         |
 | -------- | ------------- |
@@ -132,8 +133,19 @@ docker exec -it gitlab-runner gitlab-runner start
 > 可从 `cat $GITLAB_HOME/config/initial_root_password` 获取
 
 - 修改本机及运行 gitlab 的机器上的的 /etc/hosts, 添加：`192.168.155.111 gitlab.debian.com`
-  > 其中 192.168.155.111 是 gitlab 所在机器的 IP
-- 访问 `http://gitlab.debian.com:8929/`
+  > a. 其中 192.168.155.111 是 gitlab 所在机器的 IP
+  > 
+  > b. 如果开启了 项目的 pages, 同时需要在 /etc/hosts 中添加 `192.168.155.111 gitlab.debian.com {group_name}.gitlab.debian.com`
+  > ![image](https://github.com/double12gzh/double12gzh.github.io/assets/2534467/eb5bbcf5-0350-49e3-9c52-bedf2b95e6f3)
+- 访问主页 `http://gitlab.debian.com:8929/`
+- 访问项目 pages
+  示例：
+  
+  http://personal.gitlab.debian.com:8929/blogger
+  
+  http://personal.gitlab.debian.com:8929/wiki
+  ![image](https://github.com/double12gzh/double12gzh.github.io/assets/2534467/2215d65f-6093-4344-abff-e042eb06a829)
+  
 
 # 3. 配置 Runner
 
@@ -143,7 +155,9 @@ docker exec -it gitlab-runner gitlab-runner start
 - 转到的项目
 - 在左侧导航中选择 Settings > CI / CD， 找到 Runners 部分，复制注册 token
 - 注册 Runner `bash runner_register.sh`
-- 修改 gitlab-runner 的配置文件 $GITLAB_HOME/gitlab-runner/config/config.yaml,添加 network_mode = "host"
+- 修改 gitlab-runner 的配置文件 $GITLAB_HOME/gitlab-runner/config/config.yaml,**添加 network_mode = "host"**
+  
+  **注意： 每次注册完后都要添加一下 network_mode = "host", 否则将不会使用主机网络，从而导致无法访问外网**
   ![image](https://user-images.githubusercontent.com/2534467/273965926-993c7ba7-fa43-4575-98da-dbde3cbb985d.png)
 - 重启 gitlab-runner `docker restart gitlab-runner`
 - （可选）启动 gitlab-runner `bash start_gitlab_runner.sh`
@@ -154,6 +168,75 @@ docker exec -it gitlab-runner gitlab-runner start
 > - 将 YOUR_REGISTRATION_TOKEN 替换为从 GitLab 页面复制的注册 token。示例：
 >   ![image](https://user-images.githubusercontent.com/2534467/273678185-bf6bc535-86da-4a9f-bf9c-16a47451b979.png)
 
-# 4. 出处
+# 4. 项目 Pages 配置
+## 4.1 Demo1 - 托管 tiddlywiki
+### 4.1.1 项目结构
+   
+    ![image](https://github.com/double12gzh/double12gzh.github.io/assets/2534467/3954710d-9491-44cd-b79f-7c4c3c9459c3)
+   
+### 4.1.2 `.gitlab-ci.yml`
+
+```yaml
+pages:
+  script:
+    - mkdir public
+    - cp index.html public/index.html
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
+```
+
+### 4.1.3 `index.html`
+
+为 `tiddlywiki` 的 `html` 文件
+
+## 4.2 Demo2 - 托管 jekyll 博客
+### 4.2.1 项目结构
+
+![image](https://github.com/double12gzh/double12gzh.github.io/assets/2534467/4df5381f-8826-46c8-a1e6-7ce1ea8396ca)
+[参考](https://github.com/double12gzh/double12gzh.github.io)
+
+### 4.2.2 `.gitlab-ci.yml`
+
+```yaml
+image: ruby:2.7
+
+workflow:
+  rules:
+    - if: $CI_COMMIT_BRANCH
+
+cache:
+  paths:
+    - vendor/
+
+before_script:
+  - gem install bundler
+  - bundle install --path vendor
+
+pages:
+  stage: deploy
+  script:
+    - bundle exec jekyll build -d public
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+  environment: production
+
+test:
+  stage: test
+  script:
+    - bundle exec jekyll build -d test
+  artifacts:
+    paths:
+      - test
+  rules:
+    - if: $CI_COMMIT_BRANCH != "main"
+```
+
+# 5. 出处
 
 https://gist.github.com/double12gzh/66b5dc0a53e670da9733c66d2b0ad4f5
