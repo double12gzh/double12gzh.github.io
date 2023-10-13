@@ -70,9 +70,9 @@ subjects:
 ```bash
 export SA_SECRET_TOKEN=$(kubectl -n kube-system get secret/readonly-secret -o=go-template='{{.data.token}}' | base64 --decode)
 export CLUSTER_NAME=$(kubectl config current-context)
-export CURRENT_CLUSTER=$(kubectl config view --raw -o=go-template='{{range .contexts}}{{if eq .name "'''${CLUSTER_NAME}'''"}}{{ index .context "cluster" }}{{end}}{{end}}')
-export CLUSTER_CA_CERT=$(kubectl config view --raw -o=go-template='{{range .clusters}}{{if eq .name "'''${CURRENT_CLUSTER}'''"}}"{{with index .cluster "certificate-authority-data" }}{{.}}{{end}}"{{ end }}{{ end }}')
-export CLUSTER_ENDPOINT=$(kubectl config view --raw -o=go-template='{{range .clusters}}{{if eq .name "'''${CURRENT_CLUSTER}'''"}}{{ .cluster.server }}{{end}}{{ end }}')
+export CURRENT_CLUSTER=$(kubectl config view --raw -o jsonpath='{range.contexts[?(@.name=="'"${CLUSTER_NAME}"'")]}{.context.cluster}{end}')
+export CLUSTER_CA_CERT=$(kubectl config view --raw -o jsonpath='{.clusters[?(@.name=="'"${CURRENT_CLUSTER}"'")].cluster.certificate-authority-data}')
+export CLUSTER_ENDPOINT=$(kubectl config view --raw -o jsonpath='{.clusters[?(@.name=="'"${CURRENT_CLUSTER}"'")].cluster.server}')
 ```
 
 ## 3. 创建 kubeconfig
