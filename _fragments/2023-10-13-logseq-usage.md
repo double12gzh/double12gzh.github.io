@@ -1,5 +1,5 @@
 ---
-layout: snippets
+layout: fragment
 title: logseq 使用
 tags: [tool, logseq, github]
 description: logseq descripition

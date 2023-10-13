@@ -110,9 +110,9 @@ collections:
   wiki:
     output: true
     permalink: /wiki/:path/
-  snippets:
+  fragments:
     output: true
-    permalink: /snippets/:path/
+    permalink: /fragment/:path/
 
 # ---------------- #
 #      Comments    #
