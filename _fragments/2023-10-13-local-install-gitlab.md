@@ -172,8 +172,9 @@ docker exec -it gitlab-runner gitlab-runner start
 ## 4.1 Demo1 - 托管 tiddlywiki
 ### 4.1.1 项目结构
    
-    ![image](https://github.com/double12gzh/double12gzh.github.io/assets/2534467/3954710d-9491-44cd-b79f-7c4c3c9459c3)
-   
+![image](https://github.com/double12gzh/double12gzh.github.io/assets/2534467/4ad72a8b-b05a-415b-a3e7-2c40ff171489)
+
+
 ### 4.1.2 `.gitlab-ci.yml`
 
 ```yaml
