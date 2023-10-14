@@ -241,3 +241,4 @@ test:
 # 5. 出处
 
 https://gist.github.com/double12gzh/66b5dc0a53e670da9733c66d2b0ad4f5
+https://gitlab.com/double12gzh/blogdemo/-/blob/a4d5b5b949c565a1b8f7a11605585d35ce58c534/how-to-setup-local-hosted-gitlab.md
