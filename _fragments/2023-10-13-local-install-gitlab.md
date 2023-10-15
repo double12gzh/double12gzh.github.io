@@ -178,6 +178,10 @@ docker exec -it gitlab-runner gitlab-runner start
 ### 4.1.2 `.gitlab-ci.yml`
 
 ```yaml
+default:
+  tags:
+    - blog
+
 pages:
   script:
     - mkdir public
@@ -203,6 +207,10 @@ pages:
 
 ```yaml
 image: ruby:2.7
+
+default:
+  tags:
+    - blog
 
 workflow:
   rules:
