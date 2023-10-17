@@ -57,10 +57,10 @@ docker compose -f "${SCRIPT_DIR}/${docker_compose}" up -d
 > gitlab-docker-compose.yaml
 
 ```yaml
-ersion: "3.6"
+version: "3.6"
 services:
   gitlab:
-    image: "gitlab/gitlab-ce:latest"
+    image: "gitlab/gitlab-ce:16.4.1-ce.0"
     container_name: "gitlab"
     restart: always
     hostname: "gitlab.debian.com"
@@ -85,7 +85,7 @@ services:
     shm_size: "256m"
 
   gitlab-runner:
-    image: "gitlab/gitlab-runner:latest"
+    image: "gitlab/gitlab-runner:v16.2.2"
     container_name: "gitlab-runner"
     restart: always
     # will add to xxx/gitlab-runner/config/config.yaml
@@ -110,7 +110,7 @@ docker exec -it gitlab-runner gitlab-runner register \
   --executor docker \
   --description "Docker Runner" \
   --docker-privileged \
-  --docker-image "docker:latest" \
+  --docker-image "ruby:3.1" \
   --docker-volumes /var/run/docker.sock:/var/run/docker.sock
 ```
 
@@ -132,7 +132,7 @@ docker exec -it gitlab-runner gitlab-runner start
 
 > 可从 `cat $GITLAB_HOME/config/initial_root_password` 获取
 
-- 修改本机及运行 gitlab 的机器上的的 /etc/hosts, 添加：`192.168.155.111 gitlab.debian.com`
+- 修改本机、运行 gitlab 的机器、gitlab-runner 的容器中的 /etc/hosts, 添加：`192.168.155.111 gitlab.debian.com`
   > a. 其中 192.168.155.111 是 gitlab 所在机器的 IP
   > 
   > b. 如果开启了 项目的 pages, 同时需要在 /etc/hosts 中添加 `192.168.155.111 gitlab.debian.com {group_name}.gitlab.debian.com`
@@ -167,6 +167,14 @@ docker exec -it gitlab-runner gitlab-runner start
 > - 除了 token 需要修改外，其它的选默认就可
 > - 将 YOUR_REGISTRATION_TOKEN 替换为从 GitLab 页面复制的注册 token。示例：
 >   ![image](https://user-images.githubusercontent.com/2534467/273678185-bf6bc535-86da-4a9f-bf9c-16a47451b979.png)
+> - 配置镜像拉取策略，需要在 gitlab-runner/config/config.yaml 中添加以下几行
+>    [[runners]]
+>    
+>        [runners.docker]
+>           
+>           pull_policy = ["if-not-present"]
+>   
+>           allowed_pull_policies = ["always", "if-not-present"]
 
 # 4. 项目 Pages 配置
 ## 4.1 Demo1 - 托管 tiddlywiki
