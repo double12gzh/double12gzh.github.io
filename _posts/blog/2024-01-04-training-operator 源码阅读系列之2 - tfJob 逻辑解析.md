@@ -4,7 +4,7 @@ title: training-operator 源码阅读系列之2 - tfJob 逻辑解析
 categories: [kubeflow]
 description: 从源码层面解读 traning-operator 中的 tfJob 代码逻辑
 keywords: kubeflow, training-operator， tensorflow, tfJob
-excerpt: 摘要：本文是系列文章中的第 二 篇，讲解 tfJob operator 的主要逻辑
+excerpt: 摘要：本文是系列文章中的第 二 篇，讲解 tfJob operator 的主要逻辑.
 ---
 
 ## 目录
