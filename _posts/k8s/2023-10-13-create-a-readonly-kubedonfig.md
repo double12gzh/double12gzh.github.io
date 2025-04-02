@@ -68,7 +68,7 @@ subjects:
 ## 2. 获取 secret
 
 ```bash
-export SA_SECRET_TOKEN=$(kubectl -n kube-system get secret/readonly-secret -o=go-template='{{.data.token}}' | base64 --decode)
+export SA_SECRET_TOKEN=$(kubectl -n kube-system get secret/readonly-secret -o=go-template='{% raw %}{{.data.token}}{% endraw %}' | base64 --decode)
 export CLUSTER_NAME=$(kubectl config current-context)
 export CURRENT_CLUSTER=$(kubectl config view --raw -o jsonpath='{range.contexts[?(@.name=="'"${CLUSTER_NAME}"'")]}{.context.cluster}{end}')
 export CLUSTER_CA_CERT=$(kubectl config view --raw -o jsonpath='{.clusters[?(@.name=="'"${CURRENT_CLUSTER}"'")].cluster.certificate-authority-data}')
