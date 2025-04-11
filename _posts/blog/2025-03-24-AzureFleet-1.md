@@ -642,7 +642,7 @@ type DriftedResourcePlacement struct {
 
 ClusterResourcePlacement 提供了丰富的策略支持，能够满足各种复杂的集群部署需求。从简单的固定部署到复杂的动态选择和资源管理，都能通过合适的策略组合来实现。合理使用这些策略，可以构建出高效、可靠的集群部署方案。
 
-### WorkGenerator 控制器工作原理
+### 2.4 WorkGenerator 控制器工作原理
 
 #### 概述
 
