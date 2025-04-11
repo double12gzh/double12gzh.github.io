@@ -50,3 +50,15 @@ layout: default
         </div>
     </section>
     <!-- /section.content -->
+
+{% if page.repository %}
+  {% assign repository = site.github.public_repositories | where: "name", page.repository | first %}
+  {% if repository %}
+    {% assign releases = repository.releases %}
+    {% if releases.size > 0 %}
+      <!-- 显示发布信息 -->
+    {% endif %}
+  {% else %}
+    <!-- 仓库不可访问时跳过 -->
+  {% endif %}
+{% endif %}

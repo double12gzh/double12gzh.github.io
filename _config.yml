@@ -155,3 +155,8 @@ google:
 
 excluded_repos:
   - 'double12gzh/book'
+  - 'book'
+
+# 被阻止的仓库
+blocked_repos:
+  - "book"  # 添加被阻止的仓库名
