@@ -152,11 +152,3 @@ google:
     sidebar: true
     content_header: true
     content_footer: false
-
-excluded_repos:
-  - 'double12gzh/book'
-  - 'book'
-
-# 被阻止的仓库
-blocked_repos:
-  - "book"  # 添加被阻止的仓库名
