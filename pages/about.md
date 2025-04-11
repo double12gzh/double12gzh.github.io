@@ -18,7 +18,7 @@ permalink: /about/
 {% if site.url contains 'double12gzh.github.io' %}
 <li>
 微信公众号：<br />
-<img style="height:192px;width:192px;border:1px solid lightgrey;" src="{{ site.url }}/asserts/images/qrcode.jpg" alt="double12gzh" />
+<img style="height:192px;width:192px;border:1px solid lightgrey;" src="{{ site.url }}/assets/images/qrcode.jpg" alt="double12gzh" />
 </li>
 {% endif %}
 </ul>
