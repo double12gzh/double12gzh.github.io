@@ -152,3 +152,6 @@ google:
     sidebar: true
     content_header: true
     content_footer: false
+
+excluded_repos:
+  - 'double12gzh/book'
