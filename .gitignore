@@ -10,3 +10,5 @@ Gemfile.lock
 .idea
 .direnv
 .envrc
+.cursorindexingignore
+.specstory/
