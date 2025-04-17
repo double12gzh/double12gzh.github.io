@@ -20,8 +20,8 @@ permalink: /about/
 微信公众号：<br />
 <img style="height:192px;width:192px;border:1px solid lightgrey;" src="{{ site.url }}/assets/images/qrcode.jpg" alt="double12gzh" />
 </li>
-{% endif %}
-</ul> -->
+{% endif %} -->
+</ul>
 
 
 ## [会干些啥]
